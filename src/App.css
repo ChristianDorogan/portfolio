@@ -684,26 +684,26 @@ h3 {
   color: rgba(255, 255, 255, 0.9);
 }
 
-  /* Tags */
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 10px;
-  }
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
 
-  .tag {
-    font-size: 12px;
-    padding: 6px 10px;
-    border-radius: 999px;
-    border: 1px solid rgba(99, 244, 255, 0.3);
-    background: rgba(99, 244, 255, 0.08);
-    color: rgba(255, 255, 255, 0.82);
-  }
+.tag {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(99, 244, 255, 0.3);
+  background: rgba(99, 244, 255, 0.08);
+  color: rgba(255, 255, 255, 0.82);
+}
 
-  .foot {
-    text-align: center;
-    padding: 22px 0 30px;
-    color: rgba(99, 244, 255, 0.5);
-    font-size: 12px;
-  }
+.foot {
+  text-align: center;
+  padding: 22px 0 30px;
+  color: rgba(99, 244, 255, 0.5);
+  font-size: 12px;
+}
