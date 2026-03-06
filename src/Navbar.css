@@ -1,9 +1,9 @@
 /* Navbar */
 .navbar {
-    position: fixed;
-    top: 20%;
+    position: sticky;
+    top: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     width: auto;
     background: rgba(11, 13, 18, 0.75);
     backdrop-filter: blur(12px);
