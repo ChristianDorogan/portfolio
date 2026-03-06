@@ -1,0 +1,699 @@
+/* Base */
+.bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1a3e 50%, #0f1428 100%);
+  color: #f3f4f6;
+  position: relative;
+  overflow-x: hidden;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+.bg::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(99, 244, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(167, 139, 250, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Intro Overlay */
+.introOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1a3e 50%, #0f1428 100%);
+  pointer-events: none;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: overlayFadeOut 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3s forwards;
+}
+
+@keyframes overlayFadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.introContent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Animated background circles */
+.introCircle {
+  position: absolute;
+  border: 1px solid;
+  border-radius: 50%;
+  opacity: 0;
+  display: none;
+}
+
+/* Diagonal lines - Big & Cool - Converging on Avatar */
+.introLine {
+  position: absolute;
+  opacity: 0;
+}
+
+.introLine1 {
+  width: 250%;
+  height: 14px;
+  top: 10%;
+  left: -250%;
+  background: linear-gradient(90deg, transparent 0%, #00ffff 10%, #00ffff 90%, transparent 100%);
+  box-shadow: 0 0 50px #00ffff, 0 0 100px rgba(0, 255, 255, 0.9), inset 0 0 30px rgba(0, 255, 255, 0.7);
+  transform: rotate(-15deg);
+  animation: lineSweepToAvatar1 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s forwards;
+  filter: blur(1.5px);
+}
+
+.introLine2 {
+  width: 250%;
+  height: 16px;
+  top: 45%;
+  right: -250%;
+  background: linear-gradient(90deg, transparent 0%, #ff00ff 10%, #ff00ff 90%, transparent 100%);
+  box-shadow: 0 0 60px #ff00ff, 0 0 120px rgba(255, 0, 255, 1), inset 0 0 35px rgba(255, 0, 255, 0.8);
+  transform: rotate(20deg);
+  animation: lineSweepToAvatar2 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s forwards;
+  filter: blur(1.5px);
+}
+
+.introLine3 {
+  width: 250%;
+  height: 14px;
+  top: 80%;
+  left: -250%;
+  background: linear-gradient(90deg, transparent 0%, #00ffff 10%, #00ffff 90%, transparent 100%);
+  box-shadow: 0 0 50px #00ffff, 0 0 100px rgba(0, 255, 255, 0.9), inset 0 0 30px rgba(0, 255, 255, 0.7);
+  transform: rotate(-18deg);
+  animation: lineSweepToAvatar1 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s forwards;
+  filter: blur(1.5px);
+}
+
+.introLine4 {
+  width: 250%;
+  height: 15px;
+  top: 25%;
+  right: -250%;
+  background: linear-gradient(90deg, transparent 0%, #00ccff 10%, #00ccff 90%, transparent 100%);
+  box-shadow: 0 0 55px rgba(0, 204, 255, 1), 0 0 110px rgba(0, 204, 255, 0.95), inset 0 0 32px rgba(0, 204, 255, 0.75);
+  transform: rotate(16deg);
+  animation: lineSweepToAvatar2 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.25s forwards;
+  filter: blur(1.5px);
+}
+
+.introLine5 {
+  width: 250%;
+  height: 15px;
+  top: 65%;
+  left: -250%;
+  background: linear-gradient(90deg, transparent 0%, #ff33ff 10%, #ff33ff 90%, transparent 100%);
+  box-shadow: 0 0 55px rgba(255, 51, 255, 1), 0 0 110px rgba(255, 51, 255, 0.95), inset 0 0 32px rgba(255, 51, 255, 0.75);
+  transform: rotate(-20deg);
+  animation: lineSweepToAvatar1 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.55s forwards;
+  filter: blur(1.5px);
+}
+
+@keyframes lineSweepToAvatar1 {
+  0% {
+    left: -250%;
+    opacity: 1;
+    box-shadow: 0 0 70px currentColor, 0 0 140px currentColor;
+    transform: rotate(-15deg) skewY(0deg);
+  }
+  40% {
+    opacity: 1;
+    box-shadow: 0 0 50px currentColor, 0 0 100px currentColor;
+  }
+  85% {
+    left: 22%;
+    opacity: 1;
+    transform: rotate(-15deg) skewY(-8deg);
+    box-shadow: 0 0 40px currentColor, 0 0 80px currentColor;
+  }
+  100% {
+    left: 20%;
+    top: 48%;
+    opacity: 0;
+    transform: rotate(-15deg) skewY(-12deg);
+    box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+  }
+}
+
+@keyframes lineSweepToAvatar2 {
+  0% {
+    right: -250%;
+    opacity: 1;
+    box-shadow: 0 0 70px currentColor, 0 0 140px currentColor;
+    transform: rotate(20deg) skewY(0deg);
+  }
+  40% {
+    opacity: 1;
+    box-shadow: 0 0 50px currentColor, 0 0 100px currentColor;
+  }
+  85% {
+    right: 68%;
+    opacity: 1;
+    transform: rotate(20deg) skewY(8deg);
+    box-shadow: 0 0 40px currentColor, 0 0 80px currentColor;
+  }
+  100% {
+    right: 70%;
+    top: 50%;
+    opacity: 0;
+    transform: rotate(20deg) skewY(12deg);
+    box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+  }
+}
+
+/* Content reveal animation */
+.navbar,
+.glow,
+.heroPage,
+.pageSection,
+.foot {
+  animation: contentReveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3s both;
+}
+
+@keyframes contentReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 36px 18px;
+}
+
+/* Glow */
+.glow {
+  position: fixed;
+  left: 50%;
+  top: -140px;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 420px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.22), transparent 55%),
+    radial-gradient(circle at 70% 40%, rgba(56, 189, 248, 0.18), transparent 55%),
+    radial-gradient(circle at 55% 55%, rgba(217, 70, 239, 0.16), transparent 60%);
+  filter: blur(30px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Full-page sections */
+.heroPage,
+.pageSection {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.heroPage {
+  padding-top: 60px;
+}
+
+/* Contact Section - Shaped at Bottom */
+#contact {
+  min-height: auto;
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+#contact .wrap {
+  padding: 0;
+  background: rgba(11, 13, 18, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 20px;
+  padding: 20px 32px;
+  width: fit-content;
+  margin-bottom: 30px;
+}
+
+#contact .card {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+#contact h2 {
+  display: none;
+}
+
+#contact .text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin: 0;
+  font-size: 13px;
+  color: #d1d5db;
+}
+
+#contact a {
+  color: #63f4ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+#contact a:hover {
+  color: #a78bfa;
+}
+
+.contactSeparator {
+  margin: 0 16px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* About Section */
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.aboutContent .text {
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+/* Resume Section */
+.resumeContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.resumeSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.resumeTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #63f4ff;
+  margin: 0;
+}
+
+.resumeContent .text {
+  font-size: 13px;
+  margin: 0;
+}
+
+/* Card */
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #f3f4f6;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+.text {
+  color: rgba(255, 255, 255, 0.74);
+  line-height: 1.6;
+}
+
+/* HERO layout */
+.heroPage {
+  padding: 40px 18px 80px;
+  padding-top: 40px;
+}
+
+.heroCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+}
+
+.heroName {
+  font-size: 72px;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: #f3f4f6;
+  animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s forwards;
+  opacity: 0;
+}
+
+/* Photo */
+.avatarCircle {
+  width: 220px;
+  height: 220px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  object-fit: cover;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+  margin-top: 12px;
+
+  /* slow float + intro animation */
+  animation: slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards, floaty 5.5s ease-in-out 0.8s infinite;
+  opacity: 0;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floaty {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Subtitle */
+.heroSub {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.68);
+  animation: fadeIn 1s ease 0.3s forwards;
+  opacity: 0;
+}
+
+/* Fade/slide animation every chang
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}e */
+.heroSubAnim {
+  animation: subIn 550ms ease both;
+}
+
+@keyframes subIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(2px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Glitch overlay every change */
+.heroSubGlitch {
+  position: relative;
+  display: inline-block;
+}
+
+.heroSubGlitch::before {
+  content: "";
+  position: absolute;
+  left: -8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 116%;
+  height: 1.5em;
+  background: rgba(255, 255, 255, 0.08);
+  filter: blur(10px);
+  pointer-events: none;
+  animation: sweep 900ms ease both;
+}
+
+.heroSubGlitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: rgba(120, 180, 255, 0.55);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: jitter 900ms ease both;
+}
+
+@keyframes sweep {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-18%);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(18%);
+  }
+}
+
+@keyframes jitter {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+
+  20% {
+    opacity: 0.85;
+    transform: translate(1px, -1px);
+  }
+
+  45% {
+    opacity: 0.55;
+    transform: translate(-1px, 1px);
+  }
+
+  70% {
+    opacity: 0.35;
+    transform: translate(1px, 1px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+}
+
+@media (max-width: 650px) {
+  .heroName {
+    font-size: 44px;
+  }
+
+  .avatarCircle {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+/* Scroll cue */
+.scrollCue {
+  margin-top: 10px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.scrollCue:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Bottom contact bar */
+.heroFooter {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  display: flex;
+  justify-content: center;
+  padding: 0 18px;
+}
+
+.heroFooterInner {
+  width: min(980px, 100%);
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.30);
+  backdrop-filter: blur(12px);
+}
+
+.contactItem {
+  display: grid;
+  gap: 2px;
+  text-align: center;
+}
+
+.contactLabel {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.contactValue {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+}
+
+.contactValue:hover {
+  text-decoration: underline;
+  color: #63f4ff;
+}
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+}
+
+.contactDivider {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Projects */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.project {
+  display: block;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.02);
+  text-decoration: none;
+  color: inherit;
+}
+
+.project:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.projectTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.arrow {6, 26, 46, 0.4);
+}
+
+.project:hover .arrow {
+  color: rgba(26, 26, 46, 0.8
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tag {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 187, 233, 0.3);
+  background: rgba(148, 1255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.82)
+
+.foot {
+  text-align: center;
+  padding: 22px 0 30px;
+  color: rgba(26, 26, 46, 0.5);
+  font-size: 1355, 255, 255
+}
