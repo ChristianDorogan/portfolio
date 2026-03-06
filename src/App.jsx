@@ -3,8 +3,9 @@ import "./App.css";
 import Navbar from "./Navbar";
 import me from "./assets/me.png";
 
-const phone = "647-xxx-xxxx";
-const email = "you@email.com";
+const phone = "647-510-9339";
+const email = "christian.dorogan@protonmail.com";
+const linkedin = "https://www.linkedin.com/in/christian-dorogan-136a24329/";
 
 const projects = [
   {
@@ -198,6 +199,8 @@ export default function App() {
           Email: <a href={`mailto:${email}`}>{email}</a>
           <span className="contactSeparator">•</span>
           Phone: <a href={`tel:${phone.replace(/[^0-9+]/g, "")}`}>{phone}</a>
+          <span className="contactSeparator">•</span>
+          LinkedIn: <a href={linkedin} target="_blank" rel="noopener noreferrer">View Profile</a>
         </p>
       </PageSection>
 
